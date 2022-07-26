@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #block{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(67, 136, 136);
+        }
+    </style>
+</head>
+<body>
+<div id="block"></div>
+<hr>
+<button id="btnR">R</button>
+<button id="btnG">G</button>
+<button id="btnB">B</button>
+<hr>
+<p id="p"></p>
+<script>
+    var R = Math.round((Math.random()*1000)%256);
+    var G = Math.round((Math.random()*1000)%256);
+    var B = Math.round((Math.random()*1000)%256);
+    var block = document.getElementById('block');
+
+    block.style.backgroundColor = `rgb(${R},${G},${B})`;
+
+    document.getElementById('btnR').addEventListener('click',function(){
+        var value = prompt('請輸入R值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入R值');
+        }
+
+        R = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+
+    })
+
+
+    document.getElementById('btnG').addEventListener('click',function(){
+        var value = prompt('請輸入G值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入G值');
+        }
+
+        G = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+
+    })
+
+    document.getElementById('btnB').addEventListener('click',function(){
+        var value = prompt('請輸入B值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入B值');
+        }
+
+        B = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+    })
+
+</script>
+</body>
+</html>

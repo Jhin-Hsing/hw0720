@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>第二題</title>
+</head>
+<body>
+
+
+    <script>
+        function gameplay(){
+            var name = prompt('請輸入暱稱','小明');
+            var goal = false;
+            alert(name+',你好!');
+
+
+            if (confirm('正確選擇ok，錯誤選擇cancel，是否進行遊戲?')) {
+                if(qus('第一題: 1+1=2?',true)){
+
+                    if(qus('第二題: 2+3=6?',false)){
+
+                        if(qus('第三題: 4-6=-2?',true)){
+
+                            if(qus('第四題: 4+7=12?',false)){
+
+                                if(qus('第五題: 9+14=23?',true)){
+                                    goal = true;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            if(goal){
+                alert('挑戰成功!');
+            }else{
+                alert('挑戰失敗!');
+            }
+
+        }
+
+        function qus(qus,bool){
+
+            if(confirm(qus)==bool){
+                alert('答對!');
+                result = true;
+            }
+            else{
+                alert('答錯!');
+                result = false;
+            }
+
+            return result;
+        }
+
+        gameplay();
+
+
+
+    </script>
+</body>
+</html>

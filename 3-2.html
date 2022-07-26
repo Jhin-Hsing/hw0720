@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #block{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        * {
+            margin: 5px 2px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="block"></div>
+<hr>
+<div>
+    <button id="btnR">R</button>
+    <input id="rangeR" class="slide" type="range" min="0" max="255" step="1" value="0" >
+</div>
+
+<div>
+    <button id="btnG">G</button>
+    <input id="rangeG" class="slide" type="range" min="0" max="255" step="1" value="0">
+</div>
+
+<div>
+    <button id="btnB">B</button>
+    <input id="rangeB" class="slide" type="range" min="0" max="255" step="1" value="0">
+</div>
+
+<button id="btnAdd">+</button>
+<button id="btnSub">-</button>
+<button id="btnRnd">?</button>
+
+<p id="p"></p>
+
+<script>
+    var R=0,G=0,B=0;
+    var block = document.getElementById('block');
+    var rangeR = document.getElementById('rangeR');
+    var rangeG = document.getElementById('rangeG');
+    var rangeB = document.getElementById('rangeB');
+
+    document.getElementById('p').innerText = `${R},${G},${B}`;
+    block.style.backgroundColor = `rgb(${R},${G},${B})`;
+
+    rangeR.oninput = function(){
+        R = this.value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+    }
+
+
+    rangeG.oninput = function(){
+        G = this.value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+    }
+
+    rangeB.oninput = function(){
+        B = this.value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+        document.getElementById('p').innerText = `${rangeR.value},${rangeG.value},${rangeB.value}`;
+    }
+
+    document.getElementById('btnR').addEventListener('click',function(){
+        var value = prompt('請輸入R值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入R值');
+        }
+
+        R = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+    })
+
+
+    document.getElementById('btnG').addEventListener('click',function(){
+        var value = prompt('請輸入G值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入G值');
+        }
+
+        G = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+    })
+
+    document.getElementById('btnB').addEventListener('click',function(){
+        var value = prompt('請輸入B值');
+
+        while(value<0||value>255){
+            value = prompt('請輸入B值');
+        }
+
+        B = value;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+    })
+
+
+    document.getElementById('btnAdd').addEventListener('click',function(){
+
+        if(R<255){
+            R++;
+            rangeR.value = R;
+        }
+        if(G<255){
+            G++;
+            rangeG.value = G;
+        }
+        if(B<255){
+            B++;
+            rangeB.value = B;
+        }
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+
+    })
+
+    document.getElementById('btnSub').addEventListener('click',function(){
+
+        if(R>0){
+            R--;
+            rangeR.value = R;
+        }
+        if(G>0){
+            G--;
+            rangeG.value = G;
+        }
+        if(B>0){
+            B--;
+            rangeB.value = B;
+        }
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+
+    })
+
+    document.getElementById('btnRnd').addEventListener('click',function(){
+
+        R = Math.round((Math.random()*1000)%256);
+        G = Math.round((Math.random()*1000)%256);
+        B = Math.round((Math.random()*1000)%256);
+        rangeR.value = R;
+        rangeG.value = G;
+        rangeB.value = B;
+        block.style.backgroundColor = `rgb(${R},${G},${B})`;
+        document.getElementById('p').innerText = `${R},${G},${B}`;
+
+
+    })
+</script>
+
+</body>
+</html>
